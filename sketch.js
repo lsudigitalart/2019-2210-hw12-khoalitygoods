@@ -1,6 +1,6 @@
-var vid
-
-
+var vid;
+var playing = false;
+var completion;
 function setup() {
 	// noCanvas();
 
@@ -28,3 +28,15 @@ function draw() {
     }
   }
 }
+
+function mousePressed() {
+	if (!playing) {
+	  vid.play();
+	  vid.time((mouseX/width) * vid.duration());
+	  playing = true;
+	}
+	else {
+	  vid.pause();
+	  playing = false;
+	}
+  }
